@@ -1,0 +1,39 @@
+
+
+.wrapper{
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+}
+
+a{
+  background: gray;
+  width: 180px;
+  height: 60px;
+  border-radius: 3px;
+}
+.f,.win{
+  width: 400px;
+  height: 300px;
+}
+
+.f{
+  background: red;
+}
+.win{
+  background: green;
+
+}
+p, h1{
+  text-align: center;
+}
+.loose,.win{
+  margin-left: 200px;
+}
+.text{
+  margin-left: 0 auto;
+}
+div input{
+  margin: 0 auto;
+  display: block;
+}

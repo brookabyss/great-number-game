@@ -3,8 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
   </head>
   <body>
-    <p>{{session["num"]}}</p>
+    <div class="wrapper">
+      <div class="text">
+        <h1>Welcome to the Great Number Game</h1>
+        <p>I am thinking a number between 1 and 100<br>Take a guess!</p>
+      </div>
+      <form action="/number" method="post">
+          {% if 'user' in session.keys() %}
+              {% if session['user'] < session['num'] %}
+                <div class="loose">
+                  <h1 class="f">Too low!</h1>
+                  <input type="number" name="user" value="">
+                  <input class="" type="submit" name="user" value="Submit">
+                </div>
+              {% elif session['user'] > session['num'] %}
+              <div class="loose">
+                <h1 class="f">Too high!</h1>
+                <input type="number" name="user" value="">
+                <input type="submit" name="user" value="Submit">
+              </div>
+
+              {% elif session['user'] == session['num'] %}
+              <div class="win">
+                <h1>You guessed the right number. Do you want to play again?</h1>
+                <a href='/reset'>Play again</a>
+              </div>
+              {% endif %}
+          {% else %}
+            <input type="number" name="user" value="">
+            <input type="submit" name="user" value="Submit">
+          {% endif %}
+      </form>
+    </div>
   </body>
 </html>
